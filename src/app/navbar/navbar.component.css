@@ -1,0 +1,17 @@
+.example-form {
+    min-width: 150px;
+    max-width: 309px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-full-width input{
+      border-bottom-color: aliceblue !important
+  }
+  .navBarCustom{
+    background-color: #e35e5e !important;
+    height: 174px !important;
+  }
+  

@@ -1,0 +1,25 @@
+<div class="row">
+  <!-- first card -->
+  <div class="col-lg-4 col-md-4 col-sm-4 col-4" *ngFor="let movieArr of movieNameFromJsonRecords">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <img mat-card-avatar *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt="">
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title><a href="#">{{movieArr.title | slice:0:10}}..</a></mat-card-title>
+        <mat-card-subtitle>{{movieArr.vote_average}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w342/{{movieArr.poster_path}}" alt="">
+      <mat-card-content>
+        <p>
+          <!-- {{movieArr.overview}} -->
+          {{movieArr.overview | slice:0:60}} ...
+          <!-- {{ (movieArr.overview>6)? (movieArr.overview | slice:6:0)+'..':(movieArr.overview) }} -->
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

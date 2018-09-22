@@ -1,0 +1,31 @@
+<form #searchForm>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Movie Name" name="movieName" (focusin)="focusInFunction()" (keyup)="movieNamePredict($event)"
+      ngModel>
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="button" style="border-radius: 2px;" (click)="getMovieName(searchForm)">Go!</button>
+    </span>
+  </div><!-- /input-group -->
+</form>
+
+<div class="autoCompSearcContent" *ngIf="movieNameExistOrNot === true">
+  <div class="card" style="width: 18rem; height: 6rem;" *ngFor="let movieArr of fetchedMoviesName">
+    <div class="card-body">
+      <div class="row"></div>
+        <div class="col-sm-6">
+          <h5 class="card-title"><a href="#">{{movieArr.title}}</a></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><ngb-rating [(rate)]="movieArr.vote_average"></ngb-rating></h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{movieArr.vote_average}}</h6>
+          <!-- <h6 class="card-subtitle mb-2">{{movieArr.release_date}}</h6>
+          <a href="#" class="card-link">More</a> -->
+        </div>
+        <div class="col-sm-6">
+          <img class="card-img-top" *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt="Card image cap"
+            style="height: 52%;width: 85%;">
+        </div>
+      </div>
+      <!-- <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a> ss-->
+    </div>
+  </div>
+</div>
