@@ -4,12 +4,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule , MatInputModule , MatCardModule} from '@angular/material';
 //for bootstrap
 import {NgbModule , NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MiddleLayerDivComponent } from './middle-layer-div/middle-layer-div.component';
 import { SerachBarComponent } from './serach-bar/serach-bar.component';
 import { SearchContentComponent } from './search-content/search-content.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { SearchContentComponent } from './search-content/search-content.componen
     NavbarComponent,
     MiddleLayerDivComponent,
     SerachBarComponent,
-    SearchContentComponent
+    SearchContentComponent,
+    MovieDetailsComponent,
+    TopRatedMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { SearchContentComponent } from './search-content/search-content.componen
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

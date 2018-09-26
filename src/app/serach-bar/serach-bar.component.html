@@ -11,7 +11,7 @@
 <div class="autoCompSearcContent" *ngIf="movieNameExistOrNot === true">
   <div class="card" style="width: 18rem; height: 6rem;" *ngFor="let movieArr of fetchedMoviesName">
     <div class="card-body">
-      <div class="row"></div>
+      <div class="row">
         <div class="col-sm-6">
           <h5 class="card-title"><a href="#">{{movieArr.title}}</a></h5>
           <h6 class="card-subtitle mb-2 text-muted"><ngb-rating [(rate)]="movieArr.vote_average"></ngb-rating></h6>
