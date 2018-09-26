@@ -1,13 +1,15 @@
-<form #searchForm>
+<form #searchForm [formGroup]='usersForm'>
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Movie Name" name="movieName" (focusin)="focusInFunction()"
-      (keyup)="movieNameAutoComplete($event)" ngModel>
+      (keyup)="movieNameAutoComplete($event)" formControlName='userInput'>
     <span class="input-group-btn">
       <button class="btn btn-primary" type="button" style="border-radius: 2px;" (click)="getMovieName(searchForm)">Go!</button>
     </span>
   </div><!-- /input-group *ngIf="isLoading===true"-->
 </form>
-<mat-spinner strokeWidth="3" [diameter]="30" *ngIf="isLoading===true"></mat-spinner>
+<div class="spinnerBac" *ngIf="isLoading===true">
+  <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+</div>
 <div class="autoCompSearcContent" *ngIf="movieNameExistOrNot === true">
   <div class="card" style="width: 18rem; height: 8rem;" *ngFor="let movieArr of fetchedMoviesName">
     <div class="card-body">
@@ -23,7 +25,7 @@
         </div>
         <div class="col-sm-6">
           <img class="card-img-top" *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}"
-            alt="Card image cap" style="height: 52%;width: 85%;">
+            alt="Card image cap" style="width: 59%;">
         </div>
       </div>
       <!-- <a href="#" class="card-link">Card link</a>

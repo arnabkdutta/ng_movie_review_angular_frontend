@@ -2,3 +2,17 @@
     z-index: 999;
     position: absolute;
 }
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .spinnerBac{
+    background-color: #ffffff;
+    border: 1px solid #dfdfdf;
+    padding: 8px 7px 8px 19px;
+  }

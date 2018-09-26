@@ -11,11 +11,11 @@ export class TopRatedMovieComponent implements OnInit {
   constructor(private movieService: FetchMovieRecordsService) {}
 
   ngOnInit() {
-    this.getLatestMovies();
+    this.getTopRatedMovies();
   }
   
-  getLatestMovies() {
-    this.movieService.getLatestMovie().subscribe((data: any) => {
+  getTopRatedMovies() {
+    this.movieService.getTopRatedMovie().subscribe((data: any) => {
       this.movieNameFromJsonRecords = data.results;
     });
   }

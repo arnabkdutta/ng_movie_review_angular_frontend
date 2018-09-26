@@ -9,10 +9,11 @@ export class FetchMovieRecordsService {
   // movieResult : any;
   constructor(private httpClient: HttpClient) { }
 
-  getLatestMovie() {
+  getTopRatedMovie() {
     return this.httpClient.get(`${this.API_URL}/getTopRated`);
   }
   getMovieName(movieName) {
+    console.log(`${this.API_URL}/getMovieName/movieName/${movieName}`);
     return this.httpClient.get(`${this.API_URL}/getMovieName/movieName/${movieName}`);
   }
 }

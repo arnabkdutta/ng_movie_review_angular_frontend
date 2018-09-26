@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule , MatInputModule , MatCardModule , MatAutocompleteModule , MatProgressSpinnerModule} from '@angular/material';
 //for bootstrap
 import {NgbModule , NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,13 +23,15 @@ import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.compon
     SerachBarComponent,
     SearchContentComponent,
     MovieDetailsComponent,
-    TopRatedMovieComponent
+    TopRatedMovieComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     NgbCollapseModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatCardModule,

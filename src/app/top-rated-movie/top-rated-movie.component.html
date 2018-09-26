@@ -3,17 +3,20 @@
   <div class="col-lg-3 col-md-3 col-sm-4 col-4" *ngFor="let movieArr of movieNameFromJsonRecords">
     <mat-card class="example-card">
       <mat-card-header>
-        <img mat-card-avatar *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt="">
+        <!-- <img mat-card-avatar *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt=""> -->
         <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title><a href="#">{{movieArr.title | slice:0:80}}</a></mat-card-title>
+        <mat-card-title><a href="#">{{movieArr.title | slice:0:40}}</a></mat-card-title>
         <mat-card-subtitle>{{movieArr.vote_average}}</mat-card-subtitle>
       </mat-card-header>
+      <h6 class="card-subtitle mb-2 text-muted">
+          <!-- <ngb-rating [(rate)]="movieArr.vote_average"></ngb-rating> -->
+          {{movieArr.release_date | date:"yyyy"}}
+        </h6>
       <img mat-card-image *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w342/{{movieArr.poster_path}}" alt="">
       <mat-card-content>
         <p>
           <!-- {{movieArr.overview}} -->
           {{movieArr.overview | slice:0:80}} ...
-          <!-- {{ (movieArr.overview>6)? (movieArr.overview | slice:6:0)+'..':(movieArr.overview) }} -->
         </p>
       </mat-card-content>
       <mat-card-actions>
