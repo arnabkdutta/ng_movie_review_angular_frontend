@@ -14,10 +14,9 @@ export class TopRatedMovieComponent implements OnInit {
     this.getLatestMovies();
   }
   
-  public getLatestMovies() {
-    this.movieService.getLatestMovie().subscribe((data: Array<object>) => {
-      this.movieNameFromJsonRecords = data;
-      // console.log(this.movieNameFromJsonRecords);
+  getLatestMovies() {
+    this.movieService.getLatestMovie().subscribe((data: any) => {
+      this.movieNameFromJsonRecords = data.results;
     });
   }
 }

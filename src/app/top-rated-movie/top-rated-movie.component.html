@@ -1,6 +1,6 @@
 <div class="row">
   <!-- first card -->
-  <div class="col-lg-4 col-md-4 col-sm-4 col-4" *ngFor="let movieArr of movieNameFromJsonRecords.results">
+  <div class="col-lg-3 col-md-3 col-sm-4 col-4" *ngFor="let movieArr of movieNameFromJsonRecords">
     <mat-card class="example-card">
       <mat-card-header>
         <img mat-card-avatar *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt="">
