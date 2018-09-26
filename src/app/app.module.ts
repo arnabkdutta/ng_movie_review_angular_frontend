@@ -14,6 +14,8 @@ import { SerachBarComponent } from './serach-bar/serach-bar.component';
 import { SearchContentComponent } from './search-content/search-content.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.component';
+import { AutoCompleteDirective } from './directive/auto-complete.directive';
+import { InputBoxPopulateDirective } from './search-bar/input-box-populate.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.compon
     SearchContentComponent,
     MovieDetailsComponent,
     TopRatedMovieComponent,
+    AutoCompleteDirective,
+    InputBoxPopulateDirective,
   ],
   imports: [
     BrowserModule,
