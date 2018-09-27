@@ -6,6 +6,7 @@ import {MatButtonModule , MatInputModule , MatCardModule , MatAutocompleteModule
 //for bootstrap
 import {NgbModule , NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; 
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +17,13 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.component';
 import { AutoCompleteDirective } from './directive/auto-complete.directive';
 import { InputBoxPopulateDirective } from './search-bar/input-box-populate.directive';
+import { TextPopulateDirective } from './directive/text-populate.directive';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/latestMovies', pathMatch: 'full'},
+  { path: 'latestMovies',      component: TopRatedMovieComponent },
+  { path: 'movieDetails/:id',      component: MovieDetailsComponent },
+];
 
 @NgModule({
   declarations: [
@@ -28,6 +36,7 @@ import { InputBoxPopulateDirective } from './search-bar/input-box-populate.direc
     TopRatedMovieComponent,
     AutoCompleteDirective,
     InputBoxPopulateDirective,
+    TextPopulateDirective,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,11 @@ import { InputBoxPopulateDirective } from './search-bar/input-box-populate.direc
     MatCardModule,
     HttpClientModule,
     MatAutocompleteModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterModule.forRoot(
+      appRoutes,
+      // { enableTracing: true } //debugging purpose
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

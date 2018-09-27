@@ -16,7 +16,7 @@ export class SerachBarComponent implements OnInit {
   movieNameExistOrNot: boolean;
   isLoading: boolean;
   usersForm: FormGroup;
-  constructor(public movieName: FetchMovieRecordsService, private fb: FormBuilder) {
+  constructor(public movieName: FetchMovieRecordsService, private fb: FormBuilder ) {
   }
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class SerachBarComponent implements OnInit {
     this.usersForm = this.fb.group({
       userInput: null
     })
+
   }
 
   getMovieName(formContent) {
@@ -62,7 +63,15 @@ export class SerachBarComponent implements OnInit {
     }
 
   }
-  focusInFunction() {
+  focusInFunction() { // hide the seach result
+    this.movieNameExistOrNot = false;
+  }
+
+  serachResultHide(){ //ide the seach
+    this.movieNameExistOrNot = false;
+  }
+
+  focusoutHideSearchBar(){
     this.movieNameExistOrNot = false;
   }
 

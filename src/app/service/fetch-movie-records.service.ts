@@ -13,7 +13,12 @@ export class FetchMovieRecordsService {
     return this.httpClient.get(`${this.API_URL}/getTopRated`);
   }
   getMovieName(movieName) {
-    console.log(`${this.API_URL}/getMovieName/movieName/${movieName}`);
+    // console.log(`${this.API_URL}/getMovieName/movieName/${movieName}`);
     return this.httpClient.get(`${this.API_URL}/getMovieName/movieName/${movieName}`);
+  }
+
+  getMovieNameById(id) {
+    // console.log(`${this.API_URL}/getMovieName/movieName/${movieName}`);
+    return this.httpClient.get(`${this.API_URL}/getMovieDetailsById/${id}`);
   }
 }

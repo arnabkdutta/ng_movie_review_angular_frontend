@@ -1,9 +1,15 @@
 <form #searchForm [formGroup]='usersForm'>
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Movie Name" name="movieName" (focusin)="focusInFunction()"
-      (keyup)="movieNameAutoComplete($event)" formControlName='userInput' value="">
+    <input type="text" 
+            class="form-control fromInput" 
+            placeholder="Movie Name" 
+            name="movieName" 
+            (focusin)="focusInFunction()"
+            (focusout)="focusoutHideSearchBar()"
+            (keyup)="movieNameAutoComplete($event)" 
+            formControlName='userInput'>
     <span class="input-group-btn">
-      <button class="btn btn-primary" type="button" style="border-radius: 2px;" (click)="getMovieName(searchForm)">Go!</button>
+      <!-- <button class="btn btn-primary" type="button" style="border-radius: 2px;" (click)="getMovieName(searchForm)">Go!</button> -->
     </span>
   </div><!-- /input-group *ngIf="isLoading===true"-->
 </form>
@@ -15,7 +21,8 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-6">
-          <h6 class="card-title" appAutoComplete inputValue = {{movieArr.title}}><a href="#">{{movieArr.title | slice:0:10}}</a></h6>
+          <h6 class="card-title" (click)="serachResultHide()"><a routerLink="/movieDetails/{{movieArr.id}}">{{movieArr.title |
+              slice:0:10}}</a></h6>
           <h6 class="card-subtitle mb-2 text-muted">
             <ngb-rating [(rate)]="movieArr.vote_average"></ngb-rating>
           </h6>
