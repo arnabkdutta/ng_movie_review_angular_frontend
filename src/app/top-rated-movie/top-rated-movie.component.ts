@@ -35,7 +35,6 @@ export class TopRatedMovieComponent implements OnInit {
   openDialog(content) {
     // const modalRef = this.modalService.open(ModalComponent);
     const modalRef = this.modalService.open(ModalComponent , { size: 'lg' });
-    modalRef.componentInstance.title = content.title;
-    modalRef.componentInstance.body = content.overview;
+    modalRef.componentInstance.content = content; // reflect to app-modal
   }
 }

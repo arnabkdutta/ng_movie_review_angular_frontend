@@ -16,16 +16,27 @@
 </div> -->
 
 <!-- <ng-template #content let-c="close" let-d="dismiss"> -->
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="modal-header" style="border: none !important;">
+  <h4 class="modal-title" id="modal-basic-title">{{content.title}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+        <img src="https://image.tmdb.org/t/p/w185/{{content.poster_path}}" class="img-thumbnail">
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+        <!-- <p class="font-weight-normal">{{content.vote_average}}</p> -->
+        <ngb-rating [(rate)]="content.vote_average"></ngb-rating>
+        <p class="font-weight-normal">{{content.release_date}}</p>
+        <p class="font-weight-bold">Over view</p>
+        <p>{{content.overview}}</p>
+    </div>
   </div>
-  <div class="modal-body">
-    <p>{{body}}</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Save</button>
-  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Save</button>
+</div>
 <!-- </ng-template> -->
