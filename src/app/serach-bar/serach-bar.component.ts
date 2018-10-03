@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from "./movie.service";
 import { switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { FetchMovieRecordsService } from "../service/fetch-movie-records.service";
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { movieResult } from "../service/api-result.service";
 @Component({
   selector: 'app-serach-bar',
   templateUrl: './serach-bar.component.html',
   styleUrls: ['./serach-bar.component.css']
 })
 export class SerachBarComponent implements OnInit {
-  movieNameFromJsonRecords: any;
+
   movieNameFromTextBox: any;
   fetchedMoviesName: Object[];
   movieNameExistOrNot: boolean;
   isLoading: boolean;
   usersForm: FormGroup;
-  constructor(public movieName: FetchMovieRecordsService, private fb: FormBuilder ) {
+  
+  constructor(
+    public movieName: FetchMovieRecordsService,
+    private fb: FormBuilder
+  ) {
   }
 
   ngOnInit() {
@@ -51,7 +54,7 @@ export class SerachBarComponent implements OnInit {
             )
           )
         )
-        .subscribe((users: any) => {
+        .subscribe((users: movieResult) => {
           this.fetchedMoviesName = users.results
           this.movieNameExistOrNot = true;
         });
@@ -62,12 +65,13 @@ export class SerachBarComponent implements OnInit {
     this.movieNameExistOrNot = false;
   }
 
-  serachResultHide(){ //ide the seach
+  serachResultHide() { //ide the seach
     this.movieNameExistOrNot = false;
   }
 
-  focusoutHideSearchBar(){
+  focusoutHideSearchBar() {
     this.movieNameExistOrNot = false;
   }
+
 
 }

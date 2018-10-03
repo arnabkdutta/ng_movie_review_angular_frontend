@@ -2,9 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatButtonModule , MatInputModule , MatCardModule , MatAutocompleteModule , MatProgressSpinnerModule} from '@angular/material';
+import {
+         MatButtonModule , 
+         MatInputModule , 
+         MatCardModule , 
+         MatAutocompleteModule , 
+         MatProgressSpinnerModule
+        } from '@angular/material';
 //for bootstrap
-import {NgbModule , NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule , NgbCollapseModule , NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -17,11 +23,12 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.component';
 import { AutoCompleteDirective } from './directive/auto-complete.directive';
 import { TextPopulateDirective } from './directive/text-populate.directive';
+import { ModalComponent } from './modal/modal.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/latestMovies', pathMatch: 'full'},
   { path: 'latestMovies',      component: TopRatedMovieComponent },
-  { path: 'movieDetails/:id',      component: MovieDetailsComponent },
+  // { path: 'movieDetails/:id',      component: MovieDetailsComponent },
 ];
 
 @NgModule({
@@ -35,6 +42,7 @@ const appRoutes: Routes = [
     TopRatedMovieComponent,
     AutoCompleteDirective,
     TextPopulateDirective,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,9 @@ const appRoutes: Routes = [
       // { enableTracing: true } //debugging purpose
     )
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbActiveModal],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
+
 })
 export class AppModule { }

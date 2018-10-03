@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FetchMovieRecordsService {
-  API_URL = "http://192.168.239.134:3000";
+  API_URL = "http://192.168.239.128:3000";
   // movieResult : any;
   constructor(private httpClient: HttpClient) { }
 

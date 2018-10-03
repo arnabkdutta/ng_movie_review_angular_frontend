@@ -5,7 +5,7 @@
       <mat-card-header>
         <!-- <img mat-card-avatar *ngIf="movieArr.poster_path != null" src="https://image.tmdb.org/t/p/w185/{{movieArr.poster_path}}" alt=""> -->
         <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title><a href="#">{{movieArr.title | slice:0:40}}</a></mat-card-title>
+        <mat-card-title><a (click)="openDialog(movieArr)">{{movieArr.title | slice:0:40}}</a></mat-card-title>
         <mat-card-subtitle>{{movieArr.vote_average}}</mat-card-subtitle>
       </mat-card-header>
       <h6 class="card-subtitle mb-2 text-muted">
@@ -26,3 +26,4 @@
     </mat-card>
   </div>
 </div>
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
