@@ -16,7 +16,6 @@ import { SearchContentComponent } from './search-content/search-content.componen
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TopRatedMovieComponent } from './top-rated-movie/top-rated-movie.component';
 import { AutoCompleteDirective } from './directive/auto-complete.directive';
-import { InputBoxPopulateDirective } from './search-bar/input-box-populate.directive';
 import { TextPopulateDirective } from './directive/text-populate.directive';
 
 const appRoutes: Routes = [
@@ -35,7 +34,6 @@ const appRoutes: Routes = [
     MovieDetailsComponent,
     TopRatedMovieComponent,
     AutoCompleteDirective,
-    InputBoxPopulateDirective,
     TextPopulateDirective,
   ],
   imports: [

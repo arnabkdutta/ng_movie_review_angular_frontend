@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SerachBarComponent implements OnInit {
   movieNameFromJsonRecords: any;
   movieNameFromTextBox: any;
-  fetchedMoviesName: any;
+  fetchedMoviesName: Object[];
   movieNameExistOrNot: boolean;
   isLoading: boolean;
   usersForm: FormGroup;
@@ -35,12 +35,7 @@ export class SerachBarComponent implements OnInit {
   movieNameAutoComplete(event: any) {
     this.movieNameFromTextBox = event.target.value;
 
-    //if (this.movieNameFromTextBox) {
-    // this.movieName.getMovieName(this.movieNameFromTextBox).subscribe((data: any) => {
-    //   this.fetchedMoviesName = data.results;
-    //   this.movieNameExistOrNot = true;
-    // });
-    if (this.movieNameFromTextBox) {
+    if (this.movieNameFromTextBox !== '') { // if text box is empty let not to call the api
       this.usersForm
         .get('userInput')
         .valueChanges
